@@ -1,5 +1,7 @@
-FROM ubuntu:14.04.2
+FROM quay.io/oouyang/docker-adb
 MAINTAINER Owen Ouyang "owen.ouyang@live.com"
+
+USER root
 
 #RUN dpkg -S add-apt-repository
 RUN dpkg --add-architecture i386 && \
