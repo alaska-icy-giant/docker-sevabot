@@ -1,22 +1,23 @@
 FROM ubuntu:14.04.2
 MAINTAINER Owen Ouyang "owen.ouyang@live.com"
 
-RUN dpkg --add-architecture i386 
+RUN dpkg --add-architecture i386 && \
 #RUN dpkg -S add-apt-repository
-RUN apt-get update
-RUN apt-get install -y nano 
-RUN apt-get install -y curl 
-RUN apt-get install -y git 
-RUN apt-get install -y xvfb
-RUN apt-get install -y x11vnc
-RUN apt-get install -y dbus
-RUN apt-get install -y python 
-RUN apt-get install -y python-setuptools 
-RUN apt-get install -y python-pip gdebi-core
-RUN apt-get install -y iso-codes
-RUN apt-get install -y fluxbox
-RUN apt-get install -y libpython2.7
-RUN apt-get install -y python-gobject-2
+    apt-get update && \
+    apt-get install -y nano 
+                       curl \
+                       git \
+                       xvfb \
+                       x11vnc \
+                       dbus \
+                       python \ 
+                       python-setuptools \
+                       python-pip \
+                       gdebi-core \
+                       iso-codes \
+                       fluxbox \
+                       libpython2.7 \
+                       python-gobject-2
 
 RUN git clone git://github.com/jmandel/sevabot.git
 RUN cd sevabot && git checkout custom && python setup.py develop
