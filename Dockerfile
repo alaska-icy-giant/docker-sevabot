@@ -1,8 +1,8 @@
 FROM ubuntu:14.04.2
 MAINTAINER Owen Ouyang "owen.ouyang@live.com"
 
-RUN dpkg --add-architecture i386 && \
 #RUN dpkg -S add-apt-repository
+RUN dpkg --add-architecture i386 && \
     apt-get update && \
     apt-get install -y nano 
                        curl \
