@@ -15,7 +15,8 @@ RUN apt-get update && \
                        iso-codes \
                        fluxbox \
                        libpython2.7 \
-                       python-gobject-2
+                       python-gobject-2 \
+                       python-virtualenv
 
 # Clean up any files used by apt-get
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -30,6 +31,7 @@ USER skype
 WORKDIR /home/skype
 
 RUN git clone git://github.com/jmandel/sevabot.git
-RUN cd sevabot && git checkout custom && python setup.py develop
+RUN cd sevabot && git checkout custom
+RUN virtualenv venv && . venv/bin/activate && python setup.py develop
 
 CMD /usr/bin/configure
