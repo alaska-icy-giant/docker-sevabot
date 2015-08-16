@@ -25,15 +25,15 @@ ADD start.sh /usr/bin/start
 ADD configure.sh /usr/bin/configure
 RUN chmod +x /usr/bin/start /usr/bin/configure
 
+RUN git clone https://github.com/opensourcehacker/sevabot.git
+RUN cd sevabot && git checkout custom
+#RUN virtualenv venv 
+#RUN . venv/bin/activate 
+RUN python setup.py develop
+
 RUN groupadd -r skype -g 1000 && useradd -r -u 1000 -s /bin/bash -m -g skype skype
 RUN echo "skype ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER skype
 WORKDIR /home/skype
-
-RUN git clone git://github.com/jmandel/sevabot.git
-RUN cd sevabot && git checkout custom
-#RUN virtualenv venv 
-#RUN . venv/bin/activate 
-RUN sudo python setup.py develop
 
 CMD /usr/bin/configure
