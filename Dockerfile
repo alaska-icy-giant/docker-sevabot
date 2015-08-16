@@ -2,7 +2,7 @@ FROM ubuntu:14.04.2
 MAINTAINER Owen Ouyang "owen.ouyang@live.com"
 
 RUN dpkg --add-architecture i386 
-RUN add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+RUN add-apt-repository "deb http://archive.canonical.com/ trusty partner"
 RUN apt-get update
 RUN apt-get install -y nano 
 RUN apt-get install -y curl 
