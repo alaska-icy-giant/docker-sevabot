@@ -32,8 +32,8 @@ WORKDIR /home/skype
 
 RUN git clone git://github.com/jmandel/sevabot.git
 RUN cd sevabot && git checkout custom
-RUN virtualenv venv 
-RUN . venv/bin/activate 
-RUN python setup.py develop
+#RUN virtualenv venv 
+#RUN . venv/bin/activate 
+RUN sudo python setup.py develop
 
 CMD /usr/bin/configure
