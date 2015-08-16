@@ -1,7 +1,7 @@
 FROM ubuntu:14.04.2
 MAINTAINER Owen Ouyang "owen.ouyang@live.com"
 
-RUN apt-get update && \
+RUN dpkg --add-architecture i386 && apt-get update && \
     apt-get install -y nano curl git xvfb x11vnc dbus \
         python python-setuptools python-pip gdebi-core \
         gcc-4.6-base:i386 iso-codes fluxbox \
