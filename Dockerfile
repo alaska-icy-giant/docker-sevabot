@@ -2,7 +2,8 @@ FROM quay.io/oouyang/skype
 MAINTAINER Owen Ouyang "owen.ouyang@live.com"
 
 #RUN dpkg -S add-apt-repository
-RUN apt-get install -y nano \
+RUN apt-get update && \
+    apt-get install -y nano \
                        curl \
                        git \
                        xvfb \
