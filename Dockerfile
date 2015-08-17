@@ -8,11 +8,9 @@ RUN apt-get update && \
                        git \
                        xvfb \
                        x11vnc \
-                       dbus \
                        python \ 
                        python-setuptools \
                        python-pip \
-                       iso-codes \
                        fluxbox \
                        libpython2.7 \
                        python-gobject-2 \
